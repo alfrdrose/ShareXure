@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+@layer utilities {
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      #ceae7b 25%,
+      #d8c59a 50%,
+      #ceae7b 75%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+  }
+}
