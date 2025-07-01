@@ -10,7 +10,8 @@ import {
   CheckIcon,
   ChatBubbleBottomCenterTextIcon,
   ArrowUpRightIcon,
-  FireIcon
+  FireIcon,
+  ExclamationTriangleIcon
 } from "@heroicons/react/24/solid";
 import { useState, useEffect } from 'react';
 
@@ -21,6 +22,9 @@ import SkeletonPost from './components/skeletonPost';
 import ConfirmRedirectModal from './components/ConfirmRedirectModal'; // ⬅️ import the modal
 
 function App() {
+
+  
+
   const postData = usePostStore((state) => state.postData);
   const fetchPost = usePostStore((state) => state.fetchPost);
   
@@ -33,7 +37,10 @@ function App() {
   };
 
   const [searchParams] = useSearchParams();
-  const type = searchParams.get("type") || "video";
+  const rawType = searchParams.get("type");
+  const validTypes = ["video", "image"];
+  const type = validTypes.includes(rawType) ? rawType : null;
+
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,6 +50,23 @@ function App() {
       setTimeout(() => setIsLoading(false), 1000); // simulate loading delay
     });
   }, [type]);
+
+  if (!type) {
+    return (
+      <div className="min-h-screen w-full flex bg-[url('/bg.png')] bg-cover bg-center flex-col items-center justify-center">
+        <div className="w-[400px] h-[300px] bg-[#1f1f1f] rounded flex flex-col items-center justify-center p-[9px]">
+          <div className="p-[20px] flex-col flex items-center">
+            <ExclamationTriangleIcon className="w-[300px] h-[90px] text-[#ceae7b]"></ExclamationTriangleIcon>
+            <span className="text-[#ceae7b] text-2xl font-bold">Invalid Post Type</span>
+            <span className="text-white text-sm mt-2 opacity-70 text-center">
+            The content you're trying to view doesn't exist or the link may be broken.
+            </span>
+          </div>
+          
+        </div>
+      </div>
+    );
+  }
 
   if (isLoading || !postData) {
     return (
