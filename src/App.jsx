@@ -56,9 +56,9 @@ function App() {
       <div className="min-h-screen w-full flex bg-[url('/bg.png')] bg-cover bg-center flex-col items-center justify-center">
         <div className="w-[400px] h-[300px] bg-[#1f1f1f] rounded flex flex-col items-center justify-center p-[9px]">
           <div className="p-[20px] flex-col flex items-center">
-            <ExclamationTriangleIcon className="w-[300px] h-[90px] text-[#ceae7b]"></ExclamationTriangleIcon>
-            <span className="text-[#ceae7b] text-2xl font-bold">Invalid Post Type</span>
-            <span className="text-white text-sm mt-2 opacity-70 text-center">
+            <ExclamationTriangleIcon className="w-[300px] h-[90px] text-[#ceae7b] mb-[15px]"></ExclamationTriangleIcon>
+            <span className="text-[#ceae7b] text-[20px] font-bold">Invalid Post Type</span>
+            <span className="text-white text-[12px] mt-2 opacity-70 text-center">
             The content you're trying to view doesn't exist or the link may be broken.
             </span>
           </div>
