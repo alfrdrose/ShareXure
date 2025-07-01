@@ -17,7 +17,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import usePostStore from './store/usePostStore';
 import useRedirectStore from './store/getStoreLink';
-import SkeletonPost from './components/SkeletonPost';
+import SkeletonPost from './components/skeletonPost';
 import ConfirmRedirectModal from './components/ConfirmRedirectModal'; // ⬅️ import the modal
 
 function App() {
